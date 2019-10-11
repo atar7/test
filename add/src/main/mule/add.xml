@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="c332a9b2-65a3-4534-b33c-217b6482aa43" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="addFlow" doc:id="8ba00f4c-56c6-4b15-8ac7-cd2363e0d3ec" >
+		<http:listener doc:name="Listener" doc:id="ce3ff133-27d6-44bc-822e-468a6bfdf920" config-ref="HTTP_Listener_config" path="/add"/>
+		<set-variable value="#[1]" doc:name="Set Variable" doc:id="d75bd768-3884-4ddf-abc8-32c8c035e9dd" variableName="counter"/>
+	</flow>
+</mule>
